@@ -701,3 +701,13 @@ $(call Device/widora_mangopi-m28)
   DEVICE_PACKAGES += kmod-i2c-gpio kmod-r8125
 endef
 TARGET_DEVICES += widora_mangopi-m28k-pro
+
+define Device/hugsun_ax3000
+  DEVICE_VENDOR := Hugsun
+  DEVICE_MODEL := AX3000
+  SOC := rk3528
+  IMAGE/sysupgrade.img.gz := boot-common | boot-script rk3528 | pine64-img | gzip | append-metadata
+  DEVICE_PACKAGES := kmod-mt7915e kmod-mt7915-firmware kmod-usb3 kmod-usb-ledtrig-usbport
+  SUPPORTED_DEVICES := hugsun,ax3000
+endef
+TARGET_DEVICES += hugsun_ax3000
